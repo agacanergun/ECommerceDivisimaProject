@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hkDIsR1lD3MP2O7INmBfYN+g9XF3KnTqbC/FVV5ZEAFpFOLPqHrMIQYFfb0Z0dGdrnMarJR4JjXV2sVh9XmcRg==",
+  "dgSpecHash": "BxejLj0rj+nRyIzINCN4u/xfm0uoaJkjYeaM+MoNc3x03V8F0qjnoHxijT2mbZVu5c/Teva3dLYCBOZnE7AuJQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\Divisima.WebUI\\Divisima.WebUI.csproj",
+  "projectFilePath": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\Divisima.WebUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

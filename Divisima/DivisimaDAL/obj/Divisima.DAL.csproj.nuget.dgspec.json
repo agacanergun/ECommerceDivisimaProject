@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj": {}
+    "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj": {
+    "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj",
         "projectName": "Divisima.DAL",
-        "projectPath": "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj",
+        "projectPath": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\DivisimaDAL\\Divisima.DAL.csproj",
         "packagesPath": "C:\\Users\\MONSTER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MONSTER\\Desktop\\eticaret\\Divisima\\DivisimaDAL\\obj\\",
+        "outputPath": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\DivisimaDAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

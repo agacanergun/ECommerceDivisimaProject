@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Divisima.WebUI
 build_property.RootNamespace = Divisima.WebUI
-build_property.ProjectDir = C:\Users\MONSTER\Desktop\eticaret\Divisima\Divisima.WebUI\
+build_property.ProjectDir = C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebUI\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\MONSTER\Desktop\eticaret\Divisima\Divisima.WebUI
+build_property.MSBuildProjectDirectory = C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebUI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Areas/admin/Views/Home/Index.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Areas/admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Areas/admin/Views/Home/Login.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Areas/admin/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYWRtaW5cVmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Areas/admin/Views/Shared/_Layout.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Areas/admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Areas/admin/Views/_ViewImports.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Areas/admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Areas/admin/Views/_ViewStart.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Areas/admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcYWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Views/Home/Index.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Views/Shared/_Layout.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/MONSTER/Desktop/eticaret/Divisima/Divisima.WebUI/Views/_ViewStart.cshtml]
+[C:/Users/MONSTER/Documents/GitHub/ECommerceDivisimaProject/Divisima/Divisima.WebUI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
