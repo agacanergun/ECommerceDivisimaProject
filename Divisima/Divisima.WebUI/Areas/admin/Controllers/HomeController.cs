@@ -17,6 +17,7 @@ namespace Divisima.WebUI.Areas.admin.Controllers
         {
             repoAdmin = _repoAdmin;
         }
+        [Route("/admin")]
         public IActionResult Index()
         {
             return View();
