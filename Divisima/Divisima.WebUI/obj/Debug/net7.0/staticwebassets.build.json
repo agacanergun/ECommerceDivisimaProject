@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VzD4SFjiuwBIcSeB4iILU89Kd32XNyLNVgm+tWVGQLk=",
+  "Hash": "ZcI3g+lHUrS4I5/7/2EQukm38ncMLXByjY7JyPDVUDI=",
   "Source": "Divisima.WebUI",
   "BasePath": "_content/Divisima.WebUI",
   "Mode": "Default",
@@ -51372,6 +51372,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\vendors\\jquery.tagsinput\\src\\jquery.tagsinput.js"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery.validate.min.js",
+      "SourceId": "Divisima.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\",
+      "BasePath": "_content/Divisima.WebUI",
+      "RelativePath": "admin/vendors/jquery.validate.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\vendors\\jquery.validate.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery.validate.unobtrusive.js",
+      "SourceId": "Divisima.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\",
+      "BasePath": "_content/Divisima.WebUI",
+      "RelativePath": "admin/vendors/jquery.validate.unobtrusive.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\vendors\\jquery.validate.unobtrusive.js"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery\\.bower.json",

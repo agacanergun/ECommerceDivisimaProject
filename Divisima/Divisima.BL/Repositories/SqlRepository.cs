@@ -17,10 +17,10 @@ namespace Divisima.BL.Repositories
             db = _db;
         }
 
-        public async void Add(T entity)
+        public void Add(T entity)
         {
-            await db.AddAsync(entity);
-            await db.SaveChangesAsync();
+             db.Add(entity);
+             db.SaveChanges();
         }
 
         public async void Delete(T entity)

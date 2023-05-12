@@ -12305,6 +12305,14 @@
       "PackagePath": "staticwebassets\\admin\\vendors\\jquery.tagsinput\\src\\jquery.tagsinput.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\admin\\vendors\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\admin\\vendors\\jquery.validate.unobtrusive.js"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\admin\\vendors\\jquery\\.bower.json",
       "PackagePath": "staticwebassets\\admin\\vendors\\jquery\\.bower.json"
     },

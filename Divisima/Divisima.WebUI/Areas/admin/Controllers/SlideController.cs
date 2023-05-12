@@ -21,5 +21,19 @@ namespace Divisima.WebUI.Areas.admin.Controllers
         {
             return View(repoSlide.GetAll());
         }
+
+        [Route("/admin/slayt/yeni")]
+        public IActionResult New()
+        {
+            return View();
+        }
+        [Route("/admin/slayt/yeni"),HttpPost]
+        public IActionResult New(Slide model)
+        {
+            repoSlide.Add(model);
+            return Redirect("/admin/slayt");
+        }
+
+
     }
 }
