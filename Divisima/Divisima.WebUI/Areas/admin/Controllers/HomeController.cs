@@ -1,8 +1,11 @@
 ﻿using Divisima.BL.Repositories;
 using Divisima.DAL.Entities;
 using Divisima.WebUI.Tools;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Divisima.WebUI.Areas.admin.Controllers
 {
@@ -26,13 +29,22 @@ namespace Divisima.WebUI.Areas.admin.Controllers
             return View();
         }
         [Route("/admin/Login"), HttpPost, AllowAnonymous]
-        public IActionResult Login(string Username, string Password, string ReturnUrl)
+        public async Task<IActionResult> Login(string Username, string Password, string ReturnUrl)
         {
             string md5Password = GeneralTool.getMD5(Password);
             Admin admin = repoAdmin.GetBy(x => x.UserName == Username && x.Password == md5Password) ?? null;
-            if (admin!=null)
+            if (admin != null)
             {
-                //login
+                List<Claim> claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.PrimarySid,admin.ID.ToString()),
+                    new Claim(ClaimTypes.Name, admin.Name+" "+admin.Surname),
+                };
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "DivisimaAuth");
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                if (string.IsNullOrEmpty(ReturnUrl))
+                    return Redirect("/admin");
+                else return Redirect(ReturnUrl);
             }
             else
             {
@@ -41,6 +53,13 @@ namespace Divisima.WebUI.Areas.admin.Controllers
 
 
             return View();
+        }
+
+        [Route("/admin/logout")]
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
         }
     }
 }

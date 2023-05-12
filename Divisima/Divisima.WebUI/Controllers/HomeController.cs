@@ -17,6 +17,7 @@ namespace Divisima.WebUI.Controllers
         public IActionResult Index2()
         {
             return View();
+
         }
 
 
