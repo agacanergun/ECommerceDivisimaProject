@@ -13,22 +13,22 @@ namespace Divisima.DAL.Entities
     {
         public int Id { get; set; }
 
-        [StringLength(50), Column(TypeName = "varchar(50)"), Required(ErrorMessage = "Slayt Adı boş geçilemez...")]
+        [StringLength(50), Column(TypeName = "varchar(50)"), Required(ErrorMessage = "Slayt Adı boş geçilemez..."), Display(Name = "Slayt Adı")]
         public string Name { get; set; }
 
-        [StringLength(50), Column(TypeName = "varchar(50)"),Display(Name="Slayt başlığı")]
+        [StringLength(50), Column(TypeName = "varchar(50)"),Display(Name="Slayt Başlığı")]
         public string Title { get; set; }
 
-        [StringLength(250), Column(TypeName = "varchar(250)"), Display(Name = "Slayt açıklaması")]
+        [StringLength(250), Column(TypeName = "varchar(250)"), Display(Name = "Slayt Açıklaması")]
         public string Description { get; set; }
 
-        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Slayt resmi")]
+        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Slayt Resmi")]
         public string Pıcture { get; set; }
 
-        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "bağlantı linki")]
+        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Bağlantı Linki")]
         public string Link { get; set; }
 
-        [Display(Name = "Görüntülenme sayısı")]
+        [Display(Name = "Görüntülenme Sırası")]
         public int DisplayIndex { get; set; }
     }
 }
