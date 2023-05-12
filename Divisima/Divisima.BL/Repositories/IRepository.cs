@@ -15,6 +15,6 @@ namespace Divisima.BL.Repositories
         public void Add(T entity);
         public void Update(T entity);
         public void Update(T entity, params Expression<Func<T, object>>[] expressions);
-        public void Delete(T entity);
+        public Task Delete(T entity);
     }
 }

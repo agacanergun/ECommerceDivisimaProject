@@ -27,13 +27,21 @@ namespace Divisima.WebUI.Areas.admin.Controllers
         {
             return View();
         }
-        [Route("/admin/slayt/yeni"),HttpPost]
+
+        [Route("/admin/slayt/yeni"), HttpPost]
         public IActionResult New(Slide model)
         {
             repoSlide.Add(model);
             return Redirect("/admin/slayt");
         }
 
-
+        [Route("/admin/slayt/sil")]
+        public IActionResult Delete(int id)
+        {
+            Slide slide = repoSlide.GetBy(x => x.Id == id) ?? null;
+            if (slide != null)
+                repoSlide.Delete(slide);
+            return Redirect("/admin/slayt");
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Divisima.BL.Repositories
              db.SaveChanges();
         }
 
-        public async void Delete(T entity)
+        public async Task Delete(T entity)
         {
             db.Remove(entity);
             await db.SaveChangesAsync();
