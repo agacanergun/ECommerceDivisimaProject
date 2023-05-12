@@ -41,6 +41,7 @@ namespace Divisima.WebUI.Areas.admin.Controllers
             Slide slide = repoSlide.GetBy(x => x.Id == id) ?? null;
             if (slide != null)
                 repoSlide.Delete(slide);
+      
             return Redirect("/admin/slayt");
         }
     }

@@ -326,5 +326,23 @@
     <!-- Custom Theme Scripts -->
     <script src="/admin/build//js/custom.min.js"></script>
     <script src="~/admin/vendors/admin.js"></script>
+
+    <!-- Modal -->
+    <div class="modal" id="modelDelete" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">SİL</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Silmek istediğinize emin misiniz ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                    <a asp-area="admin" asp-controller="Slide" asp-action="Delete" asp-route-id="" type="button" class="btn btn-danger">Evet</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
