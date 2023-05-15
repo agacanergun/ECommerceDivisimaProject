@@ -1,1 +1,18 @@
-﻿$(".slideDelete").click(function () { $("#modelDelete").modal() });
+﻿var silinecekID;
+$(".slideDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
+
+function deleteSlide() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/slayt/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/slayt";
+            else alert(result);
+        }
+    });
+}
+

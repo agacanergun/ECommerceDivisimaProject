@@ -35,14 +35,19 @@ namespace Divisima.WebUI.Areas.admin.Controllers
             return Redirect("/admin/slayt");
         }
 
-        [Route("/admin/slayt/sil")]
-        public IActionResult Delete(int id)
+        [Route("/admin/slayt/sil"),HttpPost]
+        public string Delete(int id)
         {
-            Slide slide = repoSlide.GetBy(x => x.Id == id) ?? null;
-            if (slide != null)
-                repoSlide.Delete(slide);
-      
-            return Redirect("/admin/slayt");
+            try
+            {
+                Slide slide = repoSlide.GetBy(x => x.Id == id) ?? null;
+                if (slide != null) repoSlide.Delete(slide);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

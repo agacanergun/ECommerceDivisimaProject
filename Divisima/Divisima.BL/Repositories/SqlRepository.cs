@@ -17,10 +17,10 @@ namespace Divisima.BL.Repositories
             db = _db;
         }
 
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-             db.Add(entity);
-             db.SaveChanges();
+            await db.AddAsync(entity);
+            await db.SaveChangesAsync();
         }
 
         public async Task Delete(T entity)
@@ -44,13 +44,13 @@ namespace Divisima.BL.Repositories
             return db.Set<T>().FirstOrDefault(exp);
         }
 
-        public async void Update(T entity)
+        public async Task Update(T entity)
         {
             db.Update(entity);
             await db.AddRangeAsync();
         }
 
-        public async void Update(T entity, params Expression<Func<T, object>>[] expressions)
+        public async Task Update(T entity, params Expression<Func<T, object>>[] expressions)
         {
             if (expressions.Any())
             {
@@ -62,7 +62,7 @@ namespace Divisima.BL.Repositories
             else
             {
                 db.Update(entity);
-                await db.AddRangeAsync();
+                await db.SaveChangesAsync();
             }
         }
     }
