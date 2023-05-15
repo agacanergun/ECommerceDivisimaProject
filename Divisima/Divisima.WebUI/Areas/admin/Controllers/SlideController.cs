@@ -29,13 +29,25 @@ namespace Divisima.WebUI.Areas.admin.Controllers
         }
 
         [Route("/admin/slayt/yeni"), HttpPost]
-        public IActionResult New(Slide model)
+        public async Task<IActionResult> New(Slide model)
         {
+            if (Request.Form.Files.Any())
+            {
+                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide"));
+                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["Pıcture"].FileName;
+                using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide", dosyaAdi), FileMode.Create))//resmin fiziksel kopyası için
+                {
+                    await Request.Form.Files["Pıcture"].CopyToAsync(stream);
+                }
+                model.Pıcture = "/img/slide/" + dosyaAdi;//db deki veri için
+            }
             repoSlide.Add(model);
             return Redirect("/admin/slayt");
         }
 
-        [Route("/admin/slayt/sil"),HttpPost]
+
+
+        [Route("/admin/slayt/sil"), HttpPost]
         public string Delete(int id)
         {
             try

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\DivisimaDAL\Divisima.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\slide\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fae1XWQWRIuFZ1dSBcsOnn1SGc7svma6pGXFdgHzlE4=",
+  "Hash": "8Ba+QNg+vBVJaONAlZfk6grrNZsk5Pn9pFnGiw4J4hw=",
   "Source": "Divisima.WebUI",
   "BasePath": "_content/Divisima.WebUI",
   "Mode": "Default",
@@ -78045,6 +78045,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\görsel-hazirlaniyor.jpg",
+      "SourceId": "Divisima.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\",
+      "BasePath": "_content/Divisima.WebUI",
+      "RelativePath": "img/görsel-hazirlaniyor.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\görsel-hazirlaniyor.jpg"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\icons\\1.png",

@@ -17,6 +17,7 @@
                             <thead>
                                 <tr class="headings">
                                     <th class="column-title">Adı</th>
+                                    <th class="column-title">Resmi</th>
                                     <th class="column-title">Başlığı</th>
                                     <th class="column-title">Açıklaması</th>
                                     <th class="column-title">Linki</th>
@@ -30,6 +31,17 @@
                                 {
                                     <tr class="even pointer">
                                         <td class="a-right a-right ">@s.Name</td>
+                                        <td class="a-right a-right ">
+                                            @if (!string.IsNullOrEmpty(s.Pıcture))
+                                            {
+                                                <img src="@s.Pıcture" width="100">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/img/görsel-hazirlaniyor.jpg" width="100">
+                                            }
+
+                                        </td>
                                         <td class="a-right a-right ">@s.Title</td>
                                         <td class="a-right a-right ">@s.Description</td>
                                         <td class="a-right a-right ">@s.Link</td>
