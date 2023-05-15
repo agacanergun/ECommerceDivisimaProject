@@ -30,7 +30,9 @@
                                 @foreach (Slide s in Model)
                                 {
                                     <tr class="even pointer">
-                                        <td class="a-right a-right ">@s.Name</td>
+                                        <td class="a-right a-right ">
+                                            <a asp-area="admin" asp-controller="Slide" asp-action="Edit" asp-route-id="@s.Id">@s.Name</a>
+                                        </td>
                                         <td class="a-right a-right ">
                                             @if (!string.IsNullOrEmpty(s.Pıcture))
                                             {

@@ -18473,6 +18473,26 @@
       "PackagePath": "staticwebassets\\img\\single-product\\thumb-4.jpg"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\307x.jpg",
+      "PackagePath": "staticwebassets\\img\\slide\\307x.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\597fotom.jpg",
+      "PackagePath": "staticwebassets\\img\\slide\\597fotom.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\653download.jpg",
+      "PackagePath": "staticwebassets\\img\\slide\\653download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\661sertifika.jpg",
+      "PackagePath": "staticwebassets\\img\\slide\\661sertifika.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\979download1.jpg",
+      "PackagePath": "staticwebassets\\img\\slide\\979download1.jpg"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
     },

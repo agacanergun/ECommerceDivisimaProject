@@ -47,7 +47,7 @@ namespace Divisima.BL.Repositories
         public async Task Update(T entity)
         {
             db.Update(entity);
-            await db.AddRangeAsync();
+            await db.SaveChangesAsync();
         }
 
         public async Task Update(T entity, params Expression<Func<T, object>>[] expressions)

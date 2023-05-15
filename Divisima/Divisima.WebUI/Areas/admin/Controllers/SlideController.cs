@@ -41,10 +41,33 @@ namespace Divisima.WebUI.Areas.admin.Controllers
                 }
                 model.Pıcture = "/img/slide/" + dosyaAdi;//db deki veri için
             }
-            repoSlide.Add(model);
+            await repoSlide.Add(model);
             return Redirect("/admin/slayt");
         }
 
+        [Route("/admin/slayt/düzenle")]
+        public IActionResult Edit(int id)
+        {
+
+            return View(repoSlide.GetBy(x => x.Id == id));
+        }
+
+        [Route("/admin/slayt/düzenle"), HttpPost]
+        public async Task<IActionResult> Edit(Slide model)
+        {
+            if (Request.Form.Files.Any())
+            {
+                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide"));
+                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["Pıcture"].FileName;
+                using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "slide", dosyaAdi), FileMode.Create))//resmin fiziksel kopyası için
+                {
+                    await Request.Form.Files["Pıcture"].CopyToAsync(stream);
+                }
+                model.Pıcture = "/img/slide/" + dosyaAdi;//db deki veri için
+            }
+            await repoSlide.Update(model);
+            return Redirect("/admin/slayt");
+        }
 
 
         [Route("/admin/slayt/sil"), HttpPost]
