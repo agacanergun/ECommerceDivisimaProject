@@ -63,6 +63,24 @@ namespace Divisima.DAL.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brand");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Slide", b =>
                 {
                     b.Property<int>("Id")

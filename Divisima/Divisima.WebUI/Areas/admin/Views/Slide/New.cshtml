@@ -1,5 +1,5 @@
 ﻿@model Slide
-<div class="right_col" role="main" style="padding:0">
+<div class="right_col" role="main">
     <div class="">
         <div class="row">
             <div class="col-md-12 col-sm-12 ">
@@ -10,7 +10,7 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form method="post" asp-area="admin" asp-controller="Slide" asp-action="New" id="demo-form2" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" asp-area="admin" asp-controller="Slide" asp-action="New" method="post" enctype="multipart/form-data">
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.Name"></label>
@@ -20,17 +20,17 @@
                                 </div>
                             </div>
                             <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.Pıcture"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input type="file" class="form-control" asp-for="@Model.Pıcture" accept="image/*">
+                                    <span asp-validation-for="@Model.Pıcture"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.Title"></label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <input class="form-control" asp-for="@Model.Title">
                                     <span asp-validation-for="@Model.Title"></span>
-                                </div>
-                            </div>  
-                            <div class="item form-group">
-                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.Pıcture"></label>
-                                <div class="col-md-6 col-sm-6 ">
-                                    <input type="file" accept="image/*" class="form-control" asp-for="@Model.Pıcture">
-                                    <span asp-validation-for="@Model.Pıcture"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -54,7 +54,6 @@
                                     <span asp-validation-for="@Model.DisplayIndex"></span>
                                 </div>
                             </div>
-
                             <div class="ln_solid"></div>
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">

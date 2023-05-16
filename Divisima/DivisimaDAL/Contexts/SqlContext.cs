@@ -16,6 +16,7 @@ namespace Divisima.DAL.Contexts
 
         public DbSet<Slide> Slide { get; set; }
         public DbSet<Admin> Admin { get; set; }
+        public DbSet<Brand> Brand { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4jXSux5a2/XRZazfe4taii7V2FTB6DPDt2gOUBAGVI0=",
+  "Hash": "aRqo5MaVFgBg2SDC+d/pQnzht8bYUUFa4Xq3JENpodI=",
   "Source": "Divisima.WebUI",
   "BasePath": "_content/Divisima.WebUI",
   "Mode": "Default",
@@ -78589,6 +78589,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\slide\\661sertifika.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\66IXnye.png",
+      "SourceId": "Divisima.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\",
+      "BasePath": "_content/Divisima.WebUI",
+      "RelativePath": "img/slide/66IXnye.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\slide\\66IXnye.png"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\slide\\979download1.jpg",

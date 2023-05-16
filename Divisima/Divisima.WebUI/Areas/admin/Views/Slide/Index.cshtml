@@ -30,24 +30,23 @@
                                 @foreach (Slide s in Model)
                                 {
                                     <tr class="even pointer">
-                                        <td class="a-right a-right ">
+                                        <td class="a-right a-right">
                                             <a asp-area="admin" asp-controller="Slide" asp-action="Edit" asp-route-id="@s.Id">@s.Name</a>
                                         </td>
-                                        <td class="a-right a-right ">
+                                        <td class="a-right a-right">
                                             @if (!string.IsNullOrEmpty(s.Pıcture))
                                             {
-                                                <img src="@s.Pıcture" width="100">
+                                                <img src="@s.Pıcture" width="150" />
                                             }
                                             else
                                             {
-                                                <img src="~/img/görsel-hazirlaniyor.jpg" width="100">
+                                                <img src="/img/hazirlaniyor.webp" width="150" />
                                             }
-
                                         </td>
-                                        <td class="a-right a-right ">@s.Title</td>
-                                        <td class="a-right a-right ">@s.Description</td>
-                                        <td class="a-right a-right ">@s.Link</td>
-                                        <td class="a-right a-right ">@s.DisplayIndex</td>
+                                        <td class="a-right a-right">@s.Title</td>
+                                        <td class="a-right a-right">@s.Description</td>
+                                        <td class="a-right a-right">@s.Link</td>
+                                        <td class="a-right a-right">@s.DisplayIndex</td>
                                         <td>
                                             <a class="btn btn-danger slideDelete" style="float:right;color:#fff" rowID="@s.Id">Sil</a>
                                         </td>
