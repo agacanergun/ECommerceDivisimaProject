@@ -13,6 +13,8 @@ namespace Divisima.DAL.Entities
         public int Id { get; set; }
         [StringLength(30), Column(TypeName = "varchar(30)"), Required(ErrorMessage = "Marka Adı Boş Geçilemez"), Display(Name = "Marka Adı")]
         public string Name { get; set; }
-        
+
+        public ICollection<Product> Products { get; set; }
+
     }
 }
