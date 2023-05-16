@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<Brand>
-
-
-
 <div class="right_col" role="main" style="padding:0">
     <div class="">
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Slayt <small>Yönetimi</small></h2>
-                    <a asp-area="admin" asp-controller="Brand" asp-action="New" class="btn btn-success" style="float:right;color:#fff">Yeni Slayt</a>
+                    <h2>Marka <small>Yönetimi</small></h2>
+                    <a asp-area="admin" asp-controller="Brand" asp-action="New" class="btn btn-success" style="float:right;color:#fff">Yeni Marka</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -25,11 +22,11 @@
                                 @foreach (Brand s in Model)
                                 {
                                     <tr class="even pointer">
-                                        <td class="a-right a-right ">
+                                        <td class="a-right a-right">
                                             <a asp-area="admin" asp-controller="Brand" asp-action="Edit" asp-route-id="@s.Id">@s.Name</a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-danger brandDelete" style="float:right;color:#fff" rowID="@s.Id" asp-route-id="@s.Id">Sil</a>
+                                            <a class="btn btn-danger brandDelete" style="float:right;color:#fff" rowID="@s.Id">Sil</a>
                                         </td>
                                     </tr>
                                 }
@@ -50,7 +47,7 @@
                 <h5 class="modal-title">DİKKAT!...</h5>
             </div>
             <div class="modal-body">
-                <p>Seçili Slayt Kaydını Silmek İstediğinizden Emin misiniz?</p>
+                <p>Seçili Marka Kaydını Silmek İstediğinizden Emin misiniz?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="$(this).closest('.modal').modal('hide')">Hayır</button>

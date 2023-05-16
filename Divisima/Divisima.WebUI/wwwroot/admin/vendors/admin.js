@@ -3,12 +3,15 @@ $(".slideDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
-
-
 $(".brandDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
+$(".categoryDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
+
 
 function deleteSlide() {
     $.ajax({
@@ -33,3 +36,17 @@ function deleteBrand() {
         }
     });
 }
+
+function deleteCategory() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/kategori/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/kategori";
+            else alert(result);
+        }
+    });
+}
+
+
