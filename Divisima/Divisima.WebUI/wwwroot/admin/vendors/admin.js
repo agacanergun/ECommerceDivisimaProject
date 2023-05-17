@@ -11,6 +11,10 @@ $(".categoryDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
+$(".institutionalDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
 
 
 function deleteSlide() {
@@ -49,4 +53,17 @@ function deleteCategory() {
     });
 }
 
+
+
+function deleteInstitutional() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/kurumsal/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/kurumsal";
+            else alert(result);
+        }
+    });
+}
 
