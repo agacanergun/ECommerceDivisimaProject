@@ -19,6 +19,8 @@ namespace Divisima.DAL.Contexts
         public DbSet<Brand> Brand { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<Newscast> Newscasts { get; set; }
+        public DbSet<Institutional> Institutional { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

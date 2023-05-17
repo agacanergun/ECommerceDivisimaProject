@@ -108,6 +108,99 @@ namespace Divisima.DAL.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.Institutional", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Institutional");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Newscast", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Newscasts");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("BrandID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("text");
+
+                    b.Property<int>("DisplayIndex")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BrandID");
+
+                    b.ToTable("Product");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Slide", b =>
                 {
                     b.Property<int>("Id")
@@ -152,6 +245,21 @@ namespace Divisima.DAL.Migrations
                         .HasForeignKey("ParentID");
 
                     b.Navigation("ParentCategory");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Brand");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Divisima.DAL.Entities.Category", b =>
