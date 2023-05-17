@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Institutional>
+<div class="right_col" role="main" style="padding:0">
+    <div class="">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Kurumsal <small>Yönetimi</small></h2>
+                    <a asp-area="admin" asp-controller="Institutional" asp-action="New" class="btn btn-success" style="float:right;color:#fff">Yeni Kurumsal</a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title">Başlık</th>
+                                    <th>Link</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (Institutional s in Model)
+                                {
+                                    <tr class="even pointer">
+                                        <td class="a-right a-right">
+                                            <a asp-area="admin" asp-controller="Institutional" asp-action="Edit" asp-route-id="@s.Id">@s.Title</a>
+                                        </td>
+                                        <td class="a-right a-right">
+                                            @s.Link
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger InstitutionalDelete" style="float:right;color:#fff" rowID="@s.Id">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modelDelete" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">DİKKAT!...</h5>
+            </div>
+            <div class="modal-body">
+                <p>Seçili Kurumsal Kaydını Silmek İstediğinizden Emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="$(this).closest('.modal').modal('hide')">Hayır</button>
+                <button type="button" class="btn btn-primary" onclick="deleteInstitutional(silinecekID)">Evet</button>
+            </div>
+        </div>
+    </div>
+</div>
