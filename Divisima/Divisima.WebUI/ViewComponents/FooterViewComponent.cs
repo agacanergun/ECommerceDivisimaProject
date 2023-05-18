@@ -26,6 +26,7 @@ namespace Divisima.WebUI.ViewComponents
                 Institutional = modelInstitutional
             };
             return View(model);
+
         }
     }
 }
