@@ -35,11 +35,11 @@
                        @foreach (var item in Model.Newscasts)
                         {
                             <div class="lp-item">
-                                <div class="lp-thumb set-bg" data-setbg="img/blog-thumbs/1.jpg"></div>
+                                <div class="lp-thumb set-bg" data-setbg="@item.PhotoPath"></div>
                                 <div class="lp-content">
                                     <h6>@item.Title</h6>
                                     <span>@item.Date</span>
-                                    <a href="@item.Link" class="readmore">Read More</a>
+                                    <a href="@item.Link" target="_blank" class="readmore">Read More</a>
                                 </div>
                             </div>
                         }
