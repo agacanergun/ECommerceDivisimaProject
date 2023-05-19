@@ -15,6 +15,10 @@ $(".institutionalDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
+$(".NewcastDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
 
 
 function deleteSlide() {
@@ -67,3 +71,15 @@ function deleteInstitutional() {
     });
 }
 
+
+function deleteNewcast() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/haber/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/haberler";
+            else alert(result);
+        }
+    });
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aRqo5MaVFgBg2SDC+d/pQnzht8bYUUFa4Xq3JENpodI=",
+  "Hash": "12ROKr6n3z/ybeSdo6y/rJzHqpmZ8k5olcrn6QLwlBY=",
   "Source": "Divisima.WebUI",
   "BasePath": "_content/Divisima.WebUI",
   "Mode": "Default",
@@ -78164,6 +78164,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\mastercart.png"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\Newscast\\807IXnye.png",
+      "SourceId": "Divisima.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\",
+      "BasePath": "_content/Divisima.WebUI",
+      "RelativePath": "img/Newscast/807IXnye.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Newscast\\807IXnye.png"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebUI\\wwwroot\\img\\paypal.png",

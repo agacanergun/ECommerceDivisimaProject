@@ -32,10 +32,10 @@ namespace Divisima.WebUI.Areas.admin.Controllers
             if (Request.Form.Files.Any())
             {
                 if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast"));
-                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["Pıcture"].FileName;
+                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["PhotoPath"].FileName;
                 using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast", dosyaAdi), FileMode.Create))//resmin fiziksel kopyası için
                 {
-                    await Request.Form.Files["Pıcture"].CopyToAsync(stream);
+                    await Request.Form.Files["PhotoPath"].CopyToAsync(stream);
                 }
                 model.PhotoPath = "/img/Newscast/" + dosyaAdi;//db deki veri için
             }
@@ -43,23 +43,23 @@ namespace Divisima.WebUI.Areas.admin.Controllers
             return Redirect("/admin/haberler");
         }
 
-        [Route("/admin/slayt/düzenle")]
+        [Route("/admin/haber/düzenle")]
         public IActionResult Edit(int id)
         {
 
             return View(repoNewscast.GetBy(x => x.Id == id));
         }
 
-        [Route("/admin/slayt/düzenle"), HttpPost]
+        [Route("/admin/haber/düzenle"), HttpPost]
         public async Task<IActionResult> Edit(Newscast model)
         {
             if (Request.Form.Files.Any())
             {
                 if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast"))) Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast"));
-                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["Pıcture"].FileName;
+                string dosyaAdi = DateTime.Now.Minute + DateTime.Now.Millisecond + Request.Form.Files["PhotoPath"].FileName;
                 using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "Newscast", dosyaAdi), FileMode.Create))//resmin fiziksel kopyası için
                 {
-                    await Request.Form.Files["Pıcture"].CopyToAsync(stream);
+                    await Request.Form.Files["PhotoPath"].CopyToAsync(stream);
                 }
                 model.PhotoPath = "/img/Newscast/" + dosyaAdi;//db deki veri için
             }
@@ -68,13 +68,13 @@ namespace Divisima.WebUI.Areas.admin.Controllers
         }
 
 
-        [Route("/admin/haberler/sil"), HttpPost]
+        [Route("/admin/haber/sil"), HttpPost]
         public string Delete(int id)
         {
             try
             {
-                Newscast slide = repoNewscast.GetBy(x => x.Id == id) ?? null;
-                if (slide != null) repoNewscast.Delete(slide);
+                Newscast category = repoNewscast.GetBy(x => x.Id == id) ?? null;
+                if (category != null) repoNewscast.Delete(category);
                 return "OK";
             }
             catch (Exception ex)
