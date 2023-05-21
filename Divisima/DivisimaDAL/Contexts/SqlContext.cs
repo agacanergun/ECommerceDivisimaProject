@@ -13,6 +13,7 @@ namespace Divisima.DAL.Contexts
         public SqlContext(DbContextOptions<SqlContext> options) : base(options)
         {
         }
+      
 
         public DbSet<Slide> Slide { get; set; }
         public DbSet<Admin> Admin { get; set; }

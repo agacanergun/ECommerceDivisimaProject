@@ -25,7 +25,7 @@ namespace Divisima.BL.Repositories
 
         public async Task Delete(T entity)
         {
-            db.Remove(entity);
+             db.Remove(entity);
             await db.SaveChangesAsync();
         }
 
