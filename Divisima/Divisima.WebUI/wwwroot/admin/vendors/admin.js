@@ -1,4 +1,13 @@
-﻿var silinecekID;
+﻿$(document).ready(function () {
+
+    $(".editor").each(function () {
+        CKEDITOR.replace($(this).attr("id"));
+    })
+
+});
+
+
+var silinecekID;
 $(".slideDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
@@ -83,3 +92,7 @@ function deleteNewcast() {
         }
     });
 }
+
+
+
+CKEDITOR.replace('Detail');

@@ -25,7 +25,7 @@
                                 {
                                     <tr class="even pointer">
                                         <td class="a-right a-right">
-                                            <a asp-area="admin" asp-controller="Category" asp-action="Edit" asp-route-id="@s.Id">@s.Name</a>
+                                            <a asp-area="admin" asp-controller="Category" asp-action="Edit" asp-route-id="@s.ID">@s.Name</a>
                                         </td>
                                         <td>
                                             @if (s.ParentCategory != null)
@@ -41,7 +41,7 @@
                                             @s.DisplayIndex
                                         </td>
                                         <td>
-                                            <a class="btn btn-danger categoryDelete" style="float:right;color:#fff" rowID="@s.Id">Sil</a>
+                                            <a class="btn btn-danger categoryDelete" style="float:right;color:#fff" rowID="@s.ID">Sil</a>
                                         </td>
                                     </tr>
                                 }
@@ -71,4 +71,3 @@
         </div>
     </div>
 </div>
-
