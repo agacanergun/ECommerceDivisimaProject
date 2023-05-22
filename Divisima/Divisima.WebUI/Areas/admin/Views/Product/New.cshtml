@@ -20,6 +20,15 @@
                                 </div>
                             </div>
                             <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.BrandID"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <select class="form-control" asp-for="@Model.BrandID" asp-items="@ViewBag.Brands">
+                                        <option value="">Bir Marka Seçiniz</option>
+                                    </select>
+                                    <span asp-validation-for="@Model.BrandID"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
                                 <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name" asp-for="@Model.Description"></label>
                                 <div class="col-md-6 col-sm-6 ">
                                     <textarea class="form-control" asp-for="@Model.Description"></textarea>

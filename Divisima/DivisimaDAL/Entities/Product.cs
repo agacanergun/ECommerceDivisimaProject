@@ -28,6 +28,7 @@ namespace Divisima.DAL.Entities
         [Display(Name = "Stok Miktarı")]
         public int Stock { get; set; }
 
+        [Display(Name="Marka Numarası")]
         public int? BrandID { get; set; }
         public Brand Brand { get; set; }
 

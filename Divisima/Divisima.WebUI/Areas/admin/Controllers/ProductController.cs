@@ -12,50 +12,62 @@ namespace Divisima.WebUI.Areas.admin.Controllers
     public class ProductController : Controller
     {
         IRepository<Product> repoProduct;
-        public ProductController(IRepository<Product> _repoProduct)
+        IRepository<Brand> repoBrand;
+        public ProductController(IRepository<Product> _repoProduct, IRepository<Brand> _repoBrand)
         {
             repoProduct = _repoProduct;
+            repoBrand = _repoBrand;
         }
 
         [Route("/admin/urun")]
         public IActionResult Index()
         {
-            return View(repoProduct.GetAll());
+            return View(repoProduct.GetAll().Include(i => i.Brand).Include(i => i.productCategories).ThenInclude(t=>t.Category));
         }
 
-        [Route("/admin/ürün/yeni")]
+        [Route("/admin/urun/yeni")]
         public IActionResult New()
         {
+            ViewBag.Brands = repoBrand.GetAll().OrderBy(b => b.Name).Select(b => new SelectListItem
+            {
+                Text = b.Name,
+                Value = b.Id.ToString()
+            });
             return View();
         }
 
-        [Route("/admin/ürün/yeni"), HttpPost]
+        [Route("/admin/urun/yeni"), HttpPost]
         public async Task<IActionResult> New(Product model)
         {
             await repoProduct.Add(model);
-            return Redirect("/admin/ürün");
+            return Redirect("/admin/urun");
         }
 
-        [Route("/admin/ürün/duzenle")]
+        [Route("/admin/urun/duzenle")]
         public IActionResult Edit(int id)
         {
+            ViewBag.Brands = repoBrand.GetAll().OrderBy(b => b.Name).Select(b => new SelectListItem
+            {
+                Text = b.Name,
+                Value = b.Id.ToString()
+            });
             return View(repoProduct.GetBy(x => x.ID == id));
         }
 
-        [Route("/admin/ürün/duzenle"), HttpPost]
+        [Route("/admin/urun/duzenle"), HttpPost]
         public async Task<IActionResult> Edit(Product model)
         {
             await repoProduct.Update(model);
-            return Redirect("/admin/ürün");
+            return Redirect("/admin/urun");
         }
 
-        [Route("/admin/ürün/sil"), HttpPost]
-        public string Delete(int id)
+        [Route("/admin/urun/sil"), HttpPost]
+        public async Task<string> Delete(int id)
         {
             try
             {
                 Product Product = repoProduct.GetBy(x => x.ID == id) ?? null;
-                if (Product != null) repoProduct.Delete(Product);
+                if (Product != null) await repoProduct.Delete(Product);
                 return "OK";
             }
             catch (Exception ex)

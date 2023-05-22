@@ -14,6 +14,10 @@
                             <thead>
                                 <tr class="headings">
                                     <th class="column-title">Adı</th>
+                                    <th class="column-title">Fiyatı</th>
+                                    <th class="column-title">Markası</th>
+                                    <th class="column-title">Kategorisi</th>
+                                    <th class="column-title">Stok</th>
                                     <th class="column-title">Görüntülenme Sırası</th>
                                     <th></th>
                                 </tr>
@@ -26,6 +30,18 @@
                                         <td class="a-right a-right">
                                             <a asp-area="admin" asp-controller="Product" asp-action="Edit" asp-route-id="@s.ID">@s.Name</a>
                                         </td>
+                                        <td>@s.Price</td>
+                                        @if (s.Brand.Name != null)
+                                        {
+                                            <td>@s.Brand.Name</td>
+                                        }else
+                                        {
+                                            <td>Marka Bulunamadı</td>
+                                        }
+                                        <td>
+                                            @string.Join(',',s.productCategories.Select(s=>s.Category.Name))
+                                        </td>
+                                        <td>@s.Stock</td>
                                         <td>
                                             @s.DisplayIndex
                                         </td>

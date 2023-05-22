@@ -28,6 +28,10 @@ $(".NewcastDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
+$(".productDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
 
 
 function deleteSlide() {
@@ -88,6 +92,18 @@ function deleteNewcast() {
         data: { id: silinecekID },
         success: function (result) {
             if (result == "OK") location.href = "/admin/haberler";
+            else alert(result);
+        }
+    });
+}
+
+function deleteProduct() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/urun/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/urun";
             else alert(result);
         }
     });
