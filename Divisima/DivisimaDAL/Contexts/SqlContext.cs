@@ -13,18 +13,23 @@ namespace Divisima.DAL.Contexts
         public SqlContext(DbContextOptions<SqlContext> options) : base(options)
         {
         }
-      
+
 
         public DbSet<Slide> Slide { get; set; }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Brand> Brand { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<Newscast> Newscasts { get; set; }
         public DbSet<Institutional> Institutional { get; set; }
+        public DbSet<ProductPicture> ProductPicture { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ProductCategory>().HasKey(x => new { x.ProductID, x.CategoryID });
+
             modelBuilder.Entity<Product>().HasOne(x => x.Brand).WithMany(x => x.Products).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Category>().HasOne(x => x.ParentCategory).WithMany(x => x.SubCategories).HasForeignKey(x => x.ParentID);

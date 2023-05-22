@@ -33,5 +33,9 @@ namespace Divisima.DAL.Entities
 
         [Display(Name = "Görüntülenme Sırası")]
         public int DisplayIndex { get; set; }
+
+        [Display(Name = "Ürün Resimleri")]
+        public ICollection<ProductPicture> ProductPictures { get; set; }
+        public ICollection<ProductCategory> productCategories { get; set; }
     }
 }

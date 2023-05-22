@@ -201,6 +201,51 @@ namespace Divisima.DAL.Migrations
                     b.ToTable("Product");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductID", "CategoryID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("ProductCategory");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.ProductPicture", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("DisplayIndex")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Picture")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("ProductPicture");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Slide", b =>
                 {
                     b.Property<int>("Id")
@@ -257,6 +302,36 @@ namespace Divisima.DAL.Migrations
                     b.Navigation("Brand");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.Category", "Category")
+                        .WithMany("productCategories")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Divisima.DAL.Entities.Product", "Product")
+                        .WithMany("productCategories")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.ProductPicture", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.Product", "Product")
+                        .WithMany("ProductPictures")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Brand", b =>
                 {
                     b.Navigation("Products");
@@ -265,6 +340,15 @@ namespace Divisima.DAL.Migrations
             modelBuilder.Entity("Divisima.DAL.Entities.Category", b =>
                 {
                     b.Navigation("SubCategories");
+
+                    b.Navigation("productCategories");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
+                {
+                    b.Navigation("ProductPictures");
+
+                    b.Navigation("productCategories");
                 });
 #pragma warning restore 612, 618
         }

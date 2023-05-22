@@ -22,5 +22,7 @@ namespace Divisima.DAL.Entities
         public string Name { get; set; }
         public int DisplayIndex { get; set; }
 
+        public ICollection<ProductCategory> productCategories { get; set; }
+
     }
 }
