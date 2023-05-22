@@ -32,7 +32,10 @@ $(".productDelete").click(function () {
     silinecekID = $(this).attr("rowID");
     $("#modelDelete").modal();
 });
-
+$(".productPictureDelete").click(function () {
+    silinecekID = $(this).attr("rowID");
+    $("#modelDelete").modal();
+});
 
 function deleteSlide() {
     $.ajax({
@@ -108,6 +111,19 @@ function deleteProduct() {
         }
     });
 }
+
+function deleteProductPicture() {
+    $.ajax({
+        type: "POST",
+        url: "/admin/resim/sil",
+        data: { id: silinecekID },
+        success: function (result) {
+            if (result == "OK") location.href = "/admin/resim";
+            else alert(result);
+        }
+    });
+}
+
 
 
 

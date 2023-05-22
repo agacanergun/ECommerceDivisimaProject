@@ -19,6 +19,7 @@
                                     <th class="column-title">Kategorisi</th>
                                     <th class="column-title">Stok</th>
                                     <th class="column-title">Görüntülenme Sırası</th>
+                                    <th class="column-title">Resimler</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -34,7 +35,8 @@
                                         @if (s.Brand.Name != null)
                                         {
                                             <td>@s.Brand.Name</td>
-                                        }else
+                                        }
+                                        else
                                         {
                                             <td>Marka Bulunamadı</td>
                                         }
@@ -45,6 +47,7 @@
                                         <td>
                                             @s.DisplayIndex
                                         </td>
+                                        <td><a asp-area="admin" asp-controller="ProductPicture" asp-action="Index" asp-route-productid="@s.ID">Resimler</a></td>
                                         <td>
                                             <a class="btn btn-danger productDelete" style="float:right;color:#fff" rowID="@s.ID">Sil</a>
                                         </td>
