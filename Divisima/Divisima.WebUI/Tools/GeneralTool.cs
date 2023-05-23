@@ -13,5 +13,10 @@ namespace Divisima.WebUI.Tools
                 return BitConverter.ToString(hash).Replace("-", "");
             }
         }
+
+        public static string URLConverter(string _text)
+        {
+            return _text.ToLower().Replace(" ", "-").Replace("ş", "s").Replace("ö", "o").Replace("ü", "u").Replace("ğ", "g").Replace("ç", "c").Replace("ı", "i");
+        }
     }
 }
