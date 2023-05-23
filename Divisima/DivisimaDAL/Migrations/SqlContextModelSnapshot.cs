@@ -270,7 +270,7 @@ namespace Divisima.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Pıcture")
+                    b.Property<string>("Picture")
                         .HasMaxLength(150)
                         .HasColumnType("varchar(150)");
 

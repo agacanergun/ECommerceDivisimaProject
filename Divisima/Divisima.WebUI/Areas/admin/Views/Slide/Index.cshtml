@@ -34,9 +34,9 @@
                                             <a asp-area="admin" asp-controller="Slide" asp-action="Edit" asp-route-id="@s.Id">@s.Name</a>
                                         </td>
                                         <td class="a-right a-right">
-                                            @if (!string.IsNullOrEmpty(s.Pıcture))
+                                            @if (!string.IsNullOrEmpty(s.Picture))
                                             {
-                                                <img src="@s.Pıcture" width="150" />
+                                                <img src="@s.Picture" width="150" />
                                             }
                                             else
                                             {

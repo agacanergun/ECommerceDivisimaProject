@@ -23,7 +23,7 @@ namespace Divisima.DAL.Entities
         public string Description { get; set; }
 
         [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Slayt Resmi")]
-        public string Pıcture { get; set; }
+        public string Picture { get; set; }
 
         [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Bağlantı Linki")]
         public string Link { get; set; }

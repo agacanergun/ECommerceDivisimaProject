@@ -39,7 +39,7 @@ namespace Divisima.WebUI.Areas.admin.Controllers
                 {
                     await Request.Form.Files["Pıcture"].CopyToAsync(stream);
                 }
-                model.Pıcture = "/img/slide/" + dosyaAdi;//db deki veri için
+                model.Picture = "/img/slide/" + dosyaAdi;//db deki veri için
             }
             await repoSlide.Add(model);
             return Redirect("/admin/slayt");
@@ -63,7 +63,7 @@ namespace Divisima.WebUI.Areas.admin.Controllers
                 {
                     await Request.Form.Files["Pıcture"].CopyToAsync(stream);
                 }
-                model.Pıcture = "/img/slide/" + dosyaAdi;//db deki veri için
+                model.Picture = "/img/slide/" + dosyaAdi;//db deki veri için
             }
             await repoSlide.Update(model);
             return Redirect("/admin/slayt");
