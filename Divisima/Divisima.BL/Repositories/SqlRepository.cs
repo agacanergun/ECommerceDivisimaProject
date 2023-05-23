@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,6 @@ namespace Divisima.BL.Repositories
 {
     public class SqlRepository<T> : IRepository<T> where T : class
     {
-
         SqlContext db;
         public SqlRepository(SqlContext _db)
         {
@@ -25,10 +25,14 @@ namespace Divisima.BL.Repositories
 
         public async Task Delete(T entity)
         {
-             db.Remove(entity);
+            db.Remove(entity);
             await db.SaveChangesAsync();
         }
-
+        public async Task DeleteRange(IEnumerable<T> entities)
+        {
+            db.RemoveRange(entities);
+            await db.SaveChangesAsync();
+        }
         public IQueryable<T> GetAll()
         {
             return db.Set<T>();
@@ -44,7 +48,7 @@ namespace Divisima.BL.Repositories
             return db.Set<T>().FirstOrDefault(exp);
         }
 
-        public async Task Update(T entity)
+        public async Task Update(T entity)//
         {
             db.Update(entity);
             await db.SaveChangesAsync();
@@ -59,11 +63,8 @@ namespace Divisima.BL.Repositories
                     db.Entry(entity).Property(e).IsModified = true;
                 }
             }
-            else
-            {
-                db.Update(entity);
-                await db.SaveChangesAsync();
-            }
+            else db.Update(entity);
+            await db.SaveChangesAsync();
         }
     }
 }
