@@ -223,6 +223,13 @@ $(window).on('load', function () {
 
 
 
+
+
+
+
+
+
+
 })(jQuery);
 
 
@@ -230,10 +237,19 @@ $(window).on('load', function () {
 function addCart(productid, stock) {
     var istenenmiktar = parseInt($(".inputQuantity").val())
     if (istenenmiktar <= stock) {
-
+        $.ajax({
+            url: "/sepetim/ekle",
+            type: "POST",
+            data: { productid: productid, quantity: istenenmiktar },
+            success: function (data) {
+                if (data != "") {
+                    alert(data + "isimli ürün sepete eklendi...")
+                }
+            }
+        });
     }
     else {
         $(".inputQuantity").val(stock);
-        alert("İstenen miktar stoktan fazla.")
+        alert("İstenen miktar, stoktan fazla...");
     }
 }
