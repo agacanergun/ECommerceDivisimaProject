@@ -1,9 +1,9 @@
-﻿@model Product
+﻿@model ProductVM
 <div class="page-top-info">
     <div class="container">
         <h4>Ürün Detayı</h4>
         <div class="site-pagination">
-            <a href="">Ana Sayfa</a> / <a asp-controller="product" asp-action="Detail" asp-route-name="@GeneralTool.URLConverter(Model.Name)" asp-route-id="@Model.ID">@Model.Name</a>
+            <a href="">Ana Sayfa</a> / <a asp-controller="product" asp-action="Detail" asp-route-name="@GeneralTool.URLConverter(Model.Product.Name)" asp-route-id="@Model.Product.ID">@Model.Product.Name</a>
         </div>
     </div>
 </div>
@@ -16,14 +16,14 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                @if (Model.ProductPictures.Any())
+                @if (Model.Product.ProductPictures.Any())
                 {
                     <div class="product-pic-zoom">
-                        <img class="product-big-img" src="@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name">
+                        <img class="product-big-img" src="@Model.Product.ProductPictures.FirstOrDefault().Picture" alt="@Model.Product.Name">
                     </div>
                     <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
                         <div class="product-thumbs-track">
-                            @foreach (ProductPicture pp in Model.ProductPictures)
+                            @foreach (ProductPicture pp in Model.Product.ProductPictures)
                             {
                                 <div class="pt active" data-imgbigurl="@pp.Picture"><img src="@pp.Picture" alt="@pp.Name"></div>
                             }
@@ -32,11 +32,11 @@
                 }
             </div>
             <div class="col-lg-6 product-details">
-                <h2 class="p-title">@Model.Name</h2>
-                <h3 class="p-price">@Model.Price TL</h3>
+                <h2 class="p-title">@Model.Product.Name</h2>
+                <h3 class="p-price">@Model.Product.Price TL</h3>
                 <h4 class="p-stock">
                     Stok Durumu:
-                    @if (Model.Stock > 0)
+                    @if (Model.Product.Stock > 0)
                     {
                         <span style="color:green">Stokta Var</span>
                     }
@@ -47,11 +47,11 @@
                 </h4>
                 <div class="quantity">
                     <p>Quantity</p>
-                    <div class="pro-qty"><input type="text" value="1"></div>
+                    <div class="pro-qty"><input type="text" class="inputQuantity" value="1"></div>
                 </div>
-                @if (Model.Stock > 0)
+                @if (Model.Product.Stock > 0)
                 {
-                    <a href="#" class="site-btn">HEMEN AL</a>
+                    <button class="site-btn" onclick="addCart(@Model.Product.ID,@Model.Product.Stock)">SEPETE EKLE</button>
                 }
                 else
                 {
@@ -64,7 +64,7 @@
                         </div>
                         <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="panel-body">
-                                <p>@Model.Description</p>
+                                <p>@Model.Product.Description</p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
                         <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="panel-body">
-                                <p>@Html.Raw(Model.Detail)</p>
+                                <p>@Html.Raw(Model.Product.Detail)</p>
                             </div>
                         </div>
                     </div>
@@ -95,75 +95,14 @@
 <section class="related-product-section">
     <div class="container">
         <div class="section-title">
-            <h2>RELATED PRODUCTS</h2>
+            <h2>Benzer Ürünler</h2>
         </div>
         <div class="product-slider owl-carousel">
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/product/1.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <div class="tag-new">New</div>
-                    <img src="./img/product/2.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Black and White Stripes Dress</p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/product/3.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/product/4.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/product/6.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
+            @foreach (var item in Model.RelatedProducts)
+            {
+                <partial name="_product" model="@item" />
+
+            }
         </div>
     </div>
 </section>
