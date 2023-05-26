@@ -1,6 +1,8 @@
-﻿using Divisima.BL.Repositories;
+﻿
+using Divisima.BL.Repositories;
 using Divisima.DAL.Entities;
 using Divisima.WebUI.Models;
+using Divisima.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -18,8 +20,48 @@ namespace Divisima.WebUI.Controllers
         [Route("/sepetim")]
         public IActionResult Index()
         {
-            return View();
+            if (Request.Cookies["MyCart"] != null)
+            {
+                List<Cart> carts = JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]);
+                if (carts.Count() == 0) return Redirect("/");
+                else
+                {
+                    CartVM cartVM = new CartVM
+                    {
+                        Carts = carts,
+                        Products = repoProduct.GetAll().Include(x => x.ProductPictures).OrderBy(x => Guid.NewGuid()).Take(4)
+                    };
+                    return View(cartVM);
+                }
+            }
+            else return Redirect("/");
         }
+
+        [Route("/sepetim/sayiver")]
+        public int GetCartCount()
+        {
+            if (Request.Cookies["MyCart"] != null)
+            {
+                return JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]).Sum(x => x.Quantity);
+            }
+            else return 0;
+        }
+
+        [Route("/sepetim/sil")]
+        public string RemoveCart(int productid)
+        {
+            if (Request.Cookies["MyCart"] != null)
+            {
+                List<Cart> carts = JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]);
+                carts.Remove(carts.FirstOrDefault(x => x.ID == productid));
+                CookieOptions cookieOptions = new();
+                cookieOptions.Expires = DateTime.Now.AddDays(3);
+                Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(carts), cookieOptions);
+                return "OK";
+            }
+            else return "";
+        }
+
 
         [Route("/sepetim/ekle")]
         public string AddCart(int productid, int quantity)
@@ -60,5 +102,13 @@ namespace Divisima.WebUI.Controllers
             }
             else return "";
         }
+
+
+        [Route("/sepetim/tamamla")]
+        public IActionResult Complete()
+        {
+            return View();
+        }
+
     }
 }
