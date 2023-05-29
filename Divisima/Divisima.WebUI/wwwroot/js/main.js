@@ -225,6 +225,9 @@ $(window).on('load', function () {
 
 	getCartCounter();
 
+	if ($(".siparis").text() != "") alert($(".siparis").text());
+    
+
 })(jQuery);
 
 function addCart(productid, stock) {

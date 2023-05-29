@@ -210,6 +210,7 @@ namespace Divisima.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
@@ -221,10 +222,12 @@ namespace Divisima.DAL.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("OrderNumber")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
@@ -235,6 +238,7 @@ namespace Divisima.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("char(11)");
 
@@ -242,6 +246,7 @@ namespace Divisima.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Surname")
+                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
@@ -255,8 +260,7 @@ namespace Divisima.DAL.Migrations
 
                     b.HasIndex("OrderNumber")
                         .IsUnique()
-                        .HasDatabaseName("OrderNumberUnique")
-                        .HasFilter("[OrderNumber] IS NOT NULL");
+                        .HasDatabaseName("OrderNumberUnique");
 
                     b.ToTable("Order");
                 });
