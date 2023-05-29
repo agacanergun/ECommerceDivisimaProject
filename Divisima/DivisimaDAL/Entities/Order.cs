@@ -13,16 +13,16 @@ namespace Divisima.DAL.Entities
     {
         public int ID { get; set; }
 
-        [StringLength(10), Column(TypeName = "varchar(10)"), Display(Name = "Sipariş Numarası")]
+        [StringLength(10), Column(TypeName = "varchar(10)"), Display(Name = "Sipariş Numarası"), Required(ErrorMessage = "Sipariş Numarası boş geçilemez")]
         public string OrderNumber { get; set; }
 
-        [StringLength(30), Column(TypeName = "varchar(30)"), Display(Name = "Adı")]
+        [StringLength(30), Column(TypeName = "varchar(30)"), Display(Name = "Adı"), Required(ErrorMessage = "Ad bilgisi boş geçilemez")]
         public string Name { get; set; }
 
-        [StringLength(30), Column(TypeName = "varchar(30)"), Display(Name = "Soyadı")]
+        [StringLength(30), Column(TypeName = "varchar(30)"), Display(Name = "Soyadı"), Required(ErrorMessage = "Soyad bilgisi boş geçilemez")]
         public string Surname { get; set; }
 
-        [StringLength(100), Column(TypeName = "varchar(100)"), Display(Name = "Adres Tanımı")]
+        [StringLength(100), Column(TypeName = "varchar(100)"), Display(Name = "Adres Tanımı"), Required(ErrorMessage = "Adresbilgisi boş geçilemez")]
         public string Address { get; set; }
 
         [Display(Name = "Şehir")]
@@ -32,7 +32,7 @@ namespace Divisima.DAL.Entities
         [StringLength(5), Column(TypeName = "char(5)"), Display(Name = "Posta Kodu")]
         public string ZipCode { get; set; }
 
-        [StringLength(11), Column(TypeName = "char(11)"), Display(Name = "Telefon")]
+        [StringLength(11), Column(TypeName = "char(11)"), Display(Name = "Telefon"), Required(ErrorMessage = "Telefon bilgisi boş geçilemez")]
         public string Phone { get; set; }
 
         [Display(Name = "Ödeme Türü")]

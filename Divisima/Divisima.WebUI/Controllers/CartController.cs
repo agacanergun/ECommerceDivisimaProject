@@ -1,4 +1,6 @@
 ﻿
+
+
 using Divisima.BL.Repositories;
 using Divisima.DAL.Entities;
 using Divisima.WebUI.Models;
@@ -12,9 +14,15 @@ namespace Divisima.WebUI.Controllers
     public class CartController : Controller
     {
         IRepository<Product> repoProduct;
-        public CartController(IRepository<Product> _repoProduct)
+        IRepository<City> repoCity;
+        IRepository<Order> repoOrder;
+        IRepository<OrderDetail> repoOrderDetail;
+        public CartController(IRepository<Product> _repoProduct, IRepository<City> _repoCity, IRepository<Order> _repoOrder, IRepository<OrderDetail> _repoOrderDetail)
         {
             repoProduct = _repoProduct;
+            repoCity = _repoCity;
+            repoOrder = _repoOrder;
+            repoOrderDetail = _repoOrderDetail;
         }
 
         [Route("/sepetim")]
@@ -62,7 +70,6 @@ namespace Divisima.WebUI.Controllers
             else return "";
         }
 
-
         [Route("/sepetim/ekle")]
         public string AddCart(int productid, int quantity)
         {
@@ -103,12 +110,35 @@ namespace Divisima.WebUI.Controllers
             else return "";
         }
 
-
         [Route("/sepetim/tamamla")]
         public IActionResult Complete()
         {
-            return View();
+            //JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]) fiyatları güncellemekde fayda var
+            OrderVM orderVM = new OrderVM
+            {
+                Carts = JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]),
+                Cities = repoCity.GetAll().OrderBy(o => o.Name)
+            };
+            return View(orderVM);
         }
 
+        [Route("/sepetim/tamamla"), HttpPost]
+        public IActionResult Complete(OrderVM model)
+        {
+            model.Order.RecDate = DateTime.Now;
+            model.Order.IPNO = HttpContext.Connection.RemoteIpAddress.ToString();
+            model.Order.OrderStatus = EOrderStatus.Hazırlanıyor;
+            string orderNumber = repoOrder.GetAll().Any() ? repoOrder.GetAll().OrderByDescending(x => x.ID).FirstOrDefault().ID.ToString() : "1" + DateTime.Now.Millisecond.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Hour.ToString();
+            if (orderNumber.Length > 10) orderNumber = orderNumber.Substring(0, 10);
+            model.Order.OrderNumber = orderNumber;
+            repoOrder.Add(model.Order);
+            foreach (Cart cart in JsonConvert.DeserializeObject<List<Cart>>(Request.Cookies["MyCart"]))
+            {
+                repoOrderDetail.Add(new OrderDetail { OrderID = model.Order.ID, Name = cart.Name, Picture = cart.Picture, Price = cart.Price, ProductID = cart.ID, Quantity = cart.Quantity });
+            }
+            //firmaay ve müşteriye mail gönder
+            TempData["Siparis"] = model.Order.Name + " " + model.Order.Surname + " siparişiniz başarıyla alındı...";
+            return Redirect("/");
+        }
     }
 }

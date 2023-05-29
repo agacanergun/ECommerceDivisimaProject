@@ -35,6 +35,7 @@ namespace Divisima.DAL.Contexts
             modelBuilder.Entity<Product>().HasOne(x => x.Brand).WithMany(x => x.Products).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<District>().HasOne(x => x.City).WithMany(x => x.districts).OnDelete(DeleteBehavior.SetNull);
+
             modelBuilder.Entity<Order>().HasOne(x => x.City).WithMany(x => x.Orders).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<OrderDetail>().HasOne(x => x.Product).WithMany(x => x.OrderDetails).OnDelete(DeleteBehavior.SetNull);
