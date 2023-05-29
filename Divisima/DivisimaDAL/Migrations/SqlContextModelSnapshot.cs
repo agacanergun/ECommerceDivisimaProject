@@ -221,6 +221,11 @@ namespace Divisima.DAL.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("Mail")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("varchar(80)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)

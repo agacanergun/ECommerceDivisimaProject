@@ -26,7 +26,7 @@
                             <input asp-for="Order.Surname" placeholder="Soyadı">
                             <span asp-validation-for="Order.Surname"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <input asp-for="Order.Address" placeholder="Adresi">
                             <span asp-validation-for="Order.Address"></span>
                         </div>
@@ -43,6 +43,10 @@
                         <div class="col-md-6">
                             <input asp-for="Order.Phone" placeholder="Telefonu">
                             <span asp-validation-for="Order.Phone"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="Order.Mail" placeholder="Mail Adresi">
+                            <span asp-validation-for="Order.Mail"></span>
                         </div>
                     </div>
                     <div class="cf-title">Ödeme Türü</div>
@@ -74,6 +78,5 @@
             </div>
         </div>
     </div>
-
-
-
+</section>
+<!-- checkout section end -->

@@ -4,6 +4,7 @@
 using Divisima.BL.Repositories;
 using Divisima.DAL.Entities;
 using Divisima.WebUI.Models;
+using Divisima.WebUI.Tools;
 using Divisima.WebUI.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -139,8 +140,7 @@ namespace Divisima.WebUI.Controllers
 
             Response.Cookies.Delete("MyCart");
 
-            //firmaay ve müşteriye mail gönder
-            TempData["Siparis"] = model.Order.Name + " " + model.Order.Surname + " siparişiniz başarıyla alındı...";
+            GeneralTool.MailGonder(model.Order.Mail, "Siparişini Alındı", "Sayın " + model.Order.Name + " " + model.Order.Surname + " siparişiniz başarıyla alındı...");
             return Redirect("/");
         }
     }

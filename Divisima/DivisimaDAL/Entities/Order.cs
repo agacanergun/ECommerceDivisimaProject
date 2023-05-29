@@ -35,6 +35,9 @@ namespace Divisima.DAL.Entities
         [StringLength(11), Column(TypeName = "char(11)"), Display(Name = "Telefon"), Required(ErrorMessage = "Telefon bilgisi boş geçilemez")]
         public string Phone { get; set; }
 
+        [StringLength(80), Column(TypeName = "varchar(80)"), Display(Name = "Mail"), Required(ErrorMessage = "Mail bilgisi boş geçilemez")]
+        public string Mail { get; set; }
+
         [Display(Name = "Ödeme Türü")]
         public EPaymentOption PaymentOption { get; set; }
 
