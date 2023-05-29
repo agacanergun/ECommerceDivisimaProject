@@ -108,6 +108,45 @@ namespace Divisima.DAL.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.City", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("City");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.District", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("CityID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CityID");
+
+                    b.ToTable("District");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Institutional", b =>
                 {
                     b.Property<int>("Id")
@@ -160,6 +199,103 @@ namespace Divisima.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Newscasts");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Order", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Address")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("CityID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IPNO")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("OrderNumber")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PaymentOption")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(11)
+                        .HasColumnType("char(11)");
+
+                    b.Property<DateTime>("RecDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Surname")
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("ZipCode")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CityID");
+
+                    b.HasIndex("OrderNumber")
+                        .IsUnique()
+                        .HasDatabaseName("OrderNumberUnique")
+                        .HasFilter("[OrderNumber] IS NOT NULL");
+
+                    b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.OrderDetail", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Picture")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
@@ -292,6 +428,44 @@ namespace Divisima.DAL.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.District", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.City", "City")
+                        .WithMany("districts")
+                        .HasForeignKey("CityID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Order", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.City", "City")
+                        .WithMany("Orders")
+                        .HasForeignKey("CityID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.OrderDetail", b =>
+                {
+                    b.HasOne("Divisima.DAL.Entities.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Divisima.DAL.Entities.Product", "Product")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
                 {
                     b.HasOne("Divisima.DAL.Entities.Brand", "Brand")
@@ -344,8 +518,22 @@ namespace Divisima.DAL.Migrations
                     b.Navigation("productCategories");
                 });
 
+            modelBuilder.Entity("Divisima.DAL.Entities.City", b =>
+                {
+                    b.Navigation("Orders");
+
+                    b.Navigation("districts");
+                });
+
+            modelBuilder.Entity("Divisima.DAL.Entities.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("Divisima.DAL.Entities.Product", b =>
                 {
+                    b.Navigation("OrderDetails");
+
                     b.Navigation("ProductPictures");
 
                     b.Navigation("productCategories");

@@ -38,5 +38,8 @@ namespace Divisima.DAL.Entities
         [Display(Name = "Ürün Resimleri")]
         public ICollection<ProductPicture> ProductPictures { get; set; }
         public ICollection<ProductCategory> productCategories { get; set; }
+
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
 }
