@@ -108,3 +108,4 @@ C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.Web
 C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebAPI\bin\Debug\net7.0\Divisima.DAL.pdb
 C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebAPI\bin\Debug\net7.0\Divisima.WebAPI.xml
 C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebAPI\obj\Debug\net7.0\Divisima.WebAPI.xml
+C:\Users\MONSTER\Documents\GitHub\ECommerceDivisimaProject\Divisima\Divisima.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1,19 +1,29 @@
 ﻿using Divisima.BL.Repositories;
 using Divisima.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Divisima.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class HomeController : ControllerBase
     {
         IRepository<Brand> repoBrand;
+        IRepository<Admin> repoAdmin;
 
-        public HomeController(IRepository<Brand> _repoBrand)
+        public HomeController(IRepository<Brand> _repoBrand, IRepository<Admin> _repoAdmin)
         {
             repoBrand = _repoBrand;
+            repoAdmin = _repoAdmin;
+
         }
 
 
@@ -85,6 +95,47 @@ namespace Divisima.WebAPI.Controllers
                 throw;
             }
         }
+
+
+        [AllowAnonymous, Route("/api/login"), HttpGet]
+        public string Login(string username, string password)
+        {
+            string md5Password = getMD5(password);
+            Admin admin = repoAdmin.GetBy(x => x.UserName == username && x.Password == md5Password) ?? null;
+            if (admin != null)
+            {
+                List<Claim> claims = new List<Claim> {
+                    new Claim(ClaimTypes.PrimarySid,admin.ID.ToString()),
+                    new Claim(ClaimTypes.Name,admin.Name+" "+admin.Surname)
+                };
+                string signinKey = "benimözelkeybilgisi";
+                SymmetricSecurityKey symmetricSecurityKey = new(Encoding.UTF8.GetBytes(signinKey));
+                SigningCredentials signingCredentials = new(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
+
+                JwtSecurityToken jwtSecurityToken = new(
+                    issuer: "http://localhost:5216",//token sağlayıcı url
+                    audience: "n11",//kimliği kullanacak olan firma veya uygulmanın adı
+                    claims: claims,
+                    expires: DateTime.Now.AddDays(10),//token geçerlilik süresi
+                    notBefore: DateTime.Now,//geçerliliği ne zaman başlasın
+                    signingCredentials: signingCredentials
+                    );
+                return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            }
+            else return "Kullanıcı adı veya şifre hatalı";
+        }
+
+
+
+        public static string getMD5(string _text)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(_text));
+                return BitConverter.ToString(hash).Replace("-", "");
+            }
+        }
+
 
     }
 }

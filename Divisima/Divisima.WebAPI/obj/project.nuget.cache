@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5fzMQa6xaT3IdMm1eGWb1OISKYNV1YSjgomFbqoKL0ksHBnBNrdH9vmSpCGTnolcbzzf+0eVO0vx7ainYE8QTg==",
+  "dgSpecHash": "Dn8X+S2v2LyyZp3836eh4PUcKyU1ZwGhGQX6brP6N3VOvhRQT/xKAvpdNqkWyEhyU444AMwds8g23HXtKb91Tw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MONSTER\\Documents\\GitHub\\ECommerceDivisimaProject\\Divisima\\Divisima.WebAPI\\Divisima.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

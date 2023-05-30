@@ -227,7 +227,7 @@ $(window).on('load', function () {
 
 	if ($(".siparis").text() != "") alert($(".siparis").text());
     
-
+	LoadBanner();
 })(jQuery);
 
 function addCart(productid, stock) {
@@ -271,3 +271,18 @@ function removeCart(productid) {
 		}
 	});
 } 
+
+
+function LoadBanner() {
+	$.ajax({
+		url: "http://localhost:5216/api/Home",
+		type: "GET",
+		success: function (data) {
+			$(".banners").append("<ul>");
+			$.each(data, function (index, value) {
+				$(".banners").append("<li>" + value.name + "</li>");
+			})
+			$(".banners").append("</ul>");
+		}
+	});
+}
